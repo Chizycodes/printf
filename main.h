@@ -1,10 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <limits.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <limits.h>
 
 /* Flag Modifier Macros */
 #define PLUS 1
@@ -60,7 +60,7 @@ typedef struct flag_s
 
 int _printf(const char *format, ...);
 
-/* Conversion specifiers functions */
+/* Conversion Specifier Functions */
 unsigned int convert_c(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 unsigned int convert_s(va_list args, buffer_t *output,

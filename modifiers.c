@@ -1,8 +1,3 @@
-/*
- * File: modifiers.c
- * Auth: Christian O Chima
- */
-
 #include "main.h"
 
 unsigned int print_width(buffer_t *output, unsigned int printed,
@@ -87,3 +82,4 @@ unsigned int print_neg_width(buffer_t *output, unsigned int printed,
 
 	return (ret);
 }
+

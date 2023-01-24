@@ -5,9 +5,9 @@ int run_printf(const char *format, va_list args, buffer_t *output);
 int _printf(const char *format, ...);
 
 /**
- * cleanup - performs cleanup for _printf.
- * @args: a va_list of arguments provided by _printf.
- * @output: a buffer_t struct.
+ * cleanup - Peforms cleanup operations for _printf.
+ * @args: A va_list of arguments provided to _printf.
+ * @output: A buffer_t struct.
  */
 void cleanup(va_list args, buffer_t *output)
 {
@@ -17,10 +17,10 @@ void cleanup(va_list args, buffer_t *output)
 }
 
 /**
- * run_printf - reads through the format string for _printf.
- * @format: character string to print.
- * @output: buffer_t struct containing a buffer.
- * @args: a va_list of arguments.
+ * run_printf - Reads through the format string for _printf.
+ * @format: Character string to print - may contain directives.
+ * @output: A buffer_t struct containing a buffer.
+ * @args: A va_list of arguments.
  *
  * Return: The number of characters stored to output.
  */
@@ -40,10 +40,11 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 			tmp = 0;
 			flags = handle_flags(format + i + 1, &tmp);
 			wid = handle_width(args, format + i + tmp + 1, &tmp);
-			prec = handle_precision(args, format + i + tmp + 1, &tmp);
+			prec = handle_precision(args, format + i + tmp + 1,
+					&tmp);
 			len = handle_length(format + i + tmp + 1, &tmp);
-			f = handle_specifiers(format + i + tmp + 1);
 
+			f = handle_specifiers(format + i + tmp + 1);
 			if (f != NULL)
 			{
 				i += tmp + 1;
@@ -65,11 +66,10 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 
 /**
  * _printf - Outputs a formatted string.
- * @format: character string to print.
+ * @format: Character string to print - may contain directives.
  *
- * Return: number of characters printed.
+ * Return: The number of characters printed.
  */
-
 int _printf(const char *format, ...)
 {
 	buffer_t *output;
