@@ -78,9 +78,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-
 	output = init_buffer();
-
 	if (output == NULL)
 		return (-1);
 
